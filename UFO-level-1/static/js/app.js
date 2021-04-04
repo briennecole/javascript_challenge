@@ -28,14 +28,35 @@ button.on("click", runEnter);
 
 function runEnter() {
 
+    //Clear out table 
+    tbody.html("");
+
     //Prevent Default
     d3.event.preventDefault();
 
     //Select Input Element
     let inputElement = d3.select("#datetime");
 
-    //Return input element value
+    //Pull input element value
     let inputValue = inputElement.property("value");
-    console.log(inputValue);
+    //console.log(inputValue);
 
+    //Show filtered data in table for selected date
+    //var filterDate = tableData.filter(sightings => sightings.datetime === inputValue);
+    //console.log(filterDate)
+
+    // clears the html page before displaying the filtered rows
+    tbody.html("")
+    // Use d3 to append one table row `tr` for each ufo data object
+    filterDate.forEach(sightings => {
+        let row = tbody.append("tr");
+        Object.values(sightings).forEach(value => {
+            let object = row.append("td");
+            object.text(value);
+        });
+    });
 }
+    
+
+
+
