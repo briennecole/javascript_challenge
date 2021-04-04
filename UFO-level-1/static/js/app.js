@@ -29,7 +29,7 @@ button.on("click", function() {
 
 // button.on("click", runEnter);
 
-function runEnter() {
+//function runEnter() {
 
     //Clear out table 
     tbody.html("");
@@ -52,14 +52,10 @@ function runEnter() {
     tbody.html("")
     // Use d3 to append one table row `tr` for each ufo data object
     filterDate.forEach((sightings) => {
-        var row = tbody.append("tr");
+        let row = tbody.append("tr");
         Object.entries(sightings).forEach(([key, value]) => {
-            var object = row.append("td");
-            object.text(value);
+            let cell = row.append("td");
+            cell.text(value);
         });
     });
-}
-    
-
-
-
+});
