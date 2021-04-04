@@ -8,17 +8,34 @@ const tbody = d3.select("tbody");
 
 // Create function to import data into table
 function generateTable(tableData) {
-    tableData.forEach(sighting => {
+    tableData.forEach(sightings => {
         let row = tbody.append("tr");
-        Object.values(sightings).forEach()
-    })
+        Object.values(sightings).forEach(value => {
+            let object = row.append("td");
+            object.text(value);
+        });
+    });
 }
 
 //Input table
 generateTable(tableData);
 
-//Create Filter Button
-//Event listener
-var button = d3.select("#filter-btn"); {
-    button.on
+//Select Filter Button
+var button = d3.select("#filter-btn");
+
+//Create event listener 
+button.on("click", runEnter);
+
+function runEnter() {
+
+    //Prevent Default
+    d3.event.preventDefault();
+
+    //Select Input Element
+    let inputElement = d3.select("#datetime");
+
+    //Return input element value
+    let inputValue = inputElement.property("value");
+    console.log(inputValue);
+
 }
