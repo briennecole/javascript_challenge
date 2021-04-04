@@ -27,10 +27,6 @@ var button = d3.select("#filter-btn");
 button.on("click", function() {
     console.log("Hi, a button was clicked");
 
-// button.on("click", runEnter);
-
-//function runEnter() {
-
     //Clear out table 
     tbody.html("");
 
@@ -44,13 +40,13 @@ button.on("click", function() {
     let inputValue = inputElement.property("value");
     //console.log(inputValue);
 
-    //Show filtered data in table for selected date
+    //Filter data with input value
     var filterDate = tableData.filter(sightings => sightings.datetime === inputValue);
     console.log(filterDate)
 
-    // clears the html page before displaying the filtered rows
+    // clear table
     tbody.html("")
-    // Use d3 to append one table row `tr` for each ufo data object
+    //Show filtered data in table for selected date
     filterDate.forEach((sightings) => {
         let row = tbody.append("tr");
         Object.entries(sightings).forEach(([key, value]) => {
